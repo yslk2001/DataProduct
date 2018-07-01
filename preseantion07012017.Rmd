@@ -1,0 +1,53 @@
+---
+title: "Presention (a shiny app)"
+author: 
+date: "July 1, 2018"
+output:
+  ioslides_presentation: default
+  slidy_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+ 
+
+##**Overview**
+
+Shiny is a product by RStudio and it is described by RStudio as "A web application framework for R". They further add "Turn your analyses into interactive web applications No HTML, CSS, or JavaScript knowledge required".  (More info: https://shiny.rstudio.com/)
+
+This presentation will include:
+
+- **A shiny app -- CO2 uptake rate prediction**
+- **How to use**
+
+
+## **A shiny app -- CO2 uptake rate prediction** 
+
+- **This shiny app could be used for CO2 uptake rate prediction**
+- **The dataset used for the prediction is availabe in R dataset library, CO2**
+```{r CO2, echo = TRUE}
+summary(CO2)
+ 
+```
+## **A shiny app -- CO2 uptake rate prediction (Cont'd)** 
+- Constructed with two files: 1). UI.R, and 2) server.R, which are stored at https://github.com/yslk2001/DataProduct
+- Output includes the graph (generated with following R code, and predicted value)
+
+                p <- ggplot(data=d , aes(x=conc, y = uptake))+
+                        geom_point(aes(Plant = Plant), alpha = 0.1)+
+                        geom_smooth(method = "lm")+
+                        geom_vline(xintercept = input$conc, color = "red")+
+                        geom_hline(yintercept = pred, color = "yellow")
+               
+
+##How to use
+
+- You will need to follow the instruction on the left corner, and choose the value of those three factors.
+
+- You will then view the predicted results, both the graph and the value in the main panel.
+
+```{r echo=FALSE, out.width='60%'}
+knitr::include_graphics('C:/A_Rong/Personal_file/evaluation/FY18_Performance_Evaluation/coursera_courses_NEW/data product/homework/homework3/presentation/shiny_app_snapshot.jpg')
+```
+ 
